@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-sm m-2">
                         <label for="name">Name (Required)</label>
-                        <input type="text" class="form-control" name="name" id="nameInput" aria-describedby="helpId" placeholder="Name">
+                        <input type="text" class="form-control" name="name" id="nameInput" aria-describedby="helpId" placeholder="Name" required>
                     </div>
                     <div class="col-sm m-2">
                         <label for="email">Email (Required)</label>
@@ -170,6 +170,12 @@
     <!-- AJAX post scripts-->
     <script>
         $('#submitButton').on('click', (event) => {
+            let nameCheck = $('#nameInput').val().trim();
+            let emailCheck = $('#emailInput').val().trim();
+            console.log(nameCheck, emailCheck);
+            if (!(nameCheck && emailCheck)) {
+                alert('Please enter your name and email address.');
+            } else {
             event.preventDefault();
 
             let add = (a, b) => {
@@ -199,6 +205,7 @@
                     console.log(data);
                     console.log('adding new friend');
                 });
+            }
         });
 
 
