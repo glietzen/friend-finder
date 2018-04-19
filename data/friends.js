@@ -66,5 +66,5 @@ let friendsArrary = [
 ]
 
 module.exports = {
-    friends
+    friendsArrary
 };
